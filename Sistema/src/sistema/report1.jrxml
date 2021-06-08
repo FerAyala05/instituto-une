@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c627d516-5642-4dd4-a127-9f4904bed8be">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT * FROM alumnos]]>
+	</queryString>
+	<field name="id_alumno" class="java.lang.Integer"/>
+	<field name="nombre_alumno" class="java.lang.String"/>
+	<field name="documento_alumno" class="java.lang.String"/>
+	<field name="nacimiento_alumno" class="java.sql.Date"/>
+	<field name="tipo_doc_alumno" class="java.lang.Integer"/>
+	<field name="created_at" class="java.sql.Timestamp"/>
+	<field name="updated_at" class="java.sql.Timestamp"/>
+	<field name="deleted_at" class="java.sql.Timestamp"/>
+	<variable name="id_alumno_1" class="java.lang.Integer" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{id_alumno}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="234" y="31" width="100" height="20" uuid="26cd1ff4-e5cb-4133-a6b4-c046a976744c"/>
+				<text><![CDATA[Título]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="53" y="2" width="100" height="20" uuid="e98f2c17-9267-4ea3-b2c3-4e5a5cc13311"/>
+				<text><![CDATA[id_alumno]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="234" y="2" width="100" height="20" uuid="29caec44-e498-439c-9ff3-97f9fc59b942"/>
+				<text><![CDATA[nombre_alumno]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="409" y="2" width="100" height="20" uuid="4bb294b8-b9e2-4091-a650-158871cdca3d"/>
+				<text><![CDATA[documento_alumno]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="53" y="50" width="100" height="20" uuid="62f5002a-a6ba-4077-ae93-066beb478cc9"/>
+				<textFieldExpression><![CDATA[$F{id_alumno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="234" y="50" width="100" height="20" uuid="a737748b-82f1-45ec-8db8-29a375019dd3"/>
+				<textFieldExpression><![CDATA[$F{nombre_alumno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="409" y="50" width="100" height="20" uuid="ac9fe0dc-068f-4327-8e53-b77e2b48af29"/>
+				<textFieldExpression><![CDATA[$F{documento_alumno}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement x="464" y="15" width="80" height="20" uuid="ea4bdc2e-2ef4-4532-b4b4-505004d8b573"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="586" y="15" width="40" height="20" uuid="51869388-e803-48e1-82ac-2173365de755"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
